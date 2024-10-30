@@ -40,7 +40,10 @@ export class UserService {
         return await this.prisma.user.findUnique({
             where: {
                 id: id,
-            }
+            },
+            include: {
+                tasks: true, // Incluye las tareas relacionadas con el usuario
+            },
         })
     }
 }
